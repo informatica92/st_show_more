@@ -46,7 +46,7 @@ with st.container(border=True):
     with st.expander(":material/code: view code"):
         st.code(
             """
-st.subheader("One-way expansion (no \"Show less\")")
+st.subheader("One-way expansion (no "Show less")")
 show_more(LOREM, preview=60, less_label=None)"""
         )
 
