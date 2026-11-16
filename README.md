@@ -63,3 +63,12 @@ pytest
 ```bash
 streamlit run example.py
 ```
+
+## TODO
+
+- [ ] Rename the repo/package to `st_show_more`, following the naming used by
+      most Streamlit custom components.
+- [ ] Push a version tag (e.g. `v0.1.0`) so dependents can pin a release.
+- [ ] Protect the `main` branch.
+- [ ] Refine this README.
+- [ ] Push to PyPI.
