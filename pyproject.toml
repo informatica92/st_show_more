@@ -7,7 +7,7 @@ name = "streamlit-show-more"
 version = "0.1.0"
 description = "A Streamlit component that writes text like st.write, truncated to a preview with an inline \"Show more\" button."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 keywords = ["streamlit", "streamlit-component", "show more", "read more", "truncate"]
 classifiers = [
     "Framework :: Streamlit",
