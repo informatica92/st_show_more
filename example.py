@@ -15,21 +15,67 @@ LOREM = (
 
 st.title("streamlit-show-more")
 
+with st.container(border=True):
+    st.subheader("Preview as a number of characters")
+    show_more(LOREM, preview=120)
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
 st.subheader("Preview as a number of characters")
-show_more(LOREM, preview=120)
+show_more(LOREM, preview=120)""",
+            language="python",
+        )
 
+with st.container(border=True):
+    st.subheader("Preview as a custom string, custom labels")
+    show_more(LOREM, preview="A *hand-written* summary of the text.", more_label="Leggi tutto", less_label="Chiudi")
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
 st.subheader("Preview as a custom string, custom labels")
-show_more(LOREM, preview="A *hand-written* summary of the text.", more_label="Leggi tutto", less_label="Chiudi")
+show_more(LOREM, preview="A *hand-written* summary of the text.", more_label="Leggi tutto", less_label="Chiudi")""",
+            language="python",
+        )
 
+with st.container(border=True):
+    st.subheader("One-way expansion (no \"Show less\")")
+    show_more(LOREM, preview=60, less_label=None)
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
 st.subheader("One-way expansion (no \"Show less\")")
-show_more(LOREM, preview=60, less_label=None)
+show_more(LOREM, preview=60, less_label=None)"""
+        )
 
+with st.container(border=True):
+    st.subheader("Color and size")
+    show_more(LOREM, preview=120, color="gray", size=12)
+    show_more(LOREM, preview=120, color="blue", size=20)
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
 st.subheader("Color and size")
 show_more(LOREM, preview=120, color="gray", size=12)
-show_more(LOREM, preview=120, color="blue", size=20)
+show_more(LOREM, preview=120, color="blue", size=20)""",
+            language="python",
+        )
 
-st.subheader("Short text: nothing to hide, no button")
-show_more("Just a short sentence.", preview=120)
+with st.container(border=True):
+    st.subheader("Short text: nothing to hide => no button")
+    show_more("Just a short sentence.", preview=120)
 
-st.subheader("State survives reruns")
-st.button("Rerun the app")
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
+st.subheader("Short text: nothing to hide => no button")
+show_more("Just a short sentence.", preview=120)""",
+            language="python",
+        )
+
+st.info("State survives reruns, try clicking the button below to rerun the app and see that the state is preserved.")
+if st.button("Rerun the app"):
+    st.rerun()
