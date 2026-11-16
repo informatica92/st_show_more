@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streamlit-show-more"
+version = "0.1.0"
+description = "A Streamlit component that writes text like st.write, truncated to a preview with an inline \"Show more\" button."
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["streamlit", "streamlit-component", "show more", "read more", "truncate"]
+classifiers = [
+    "Framework :: Streamlit",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "streamlit>=1.51",
+    "markdown-it-py>=3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["streamlit_show_more"]
+
+[tool.setuptools.package-data]
+streamlit_show_more = ["frontend/*"]

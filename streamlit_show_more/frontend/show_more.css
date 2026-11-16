@@ -1,0 +1,98 @@
+.ssm-root {
+  font-family: var(--st-font, inherit);
+  color: var(--st-text-color, inherit);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.ssm-root > :first-child {
+  margin-top: 0;
+}
+
+.ssm-root > :last-child {
+  margin-bottom: 0;
+}
+
+.ssm-root p,
+.ssm-root ul,
+.ssm-root ol,
+.ssm-root pre,
+.ssm-root blockquote,
+.ssm-root table {
+  margin: 0 0 1rem;
+}
+
+.ssm-root h1,
+.ssm-root h2,
+.ssm-root h3,
+.ssm-root h4,
+.ssm-root h5,
+.ssm-root h6 {
+  font-family: var(--st-heading-font, inherit);
+  line-height: 1.2;
+  margin: 1rem 0 0.5rem;
+}
+
+.ssm-root a {
+  color: var(--st-link-color, inherit);
+}
+
+.ssm-root code,
+.ssm-root pre {
+  font-family: var(--st-code-font, monospace);
+  font-size: 0.875em;
+}
+
+.ssm-root :not(pre) > code {
+  background: var(--st-secondary-background-color, transparent);
+  border-radius: 0.25rem;
+  padding: 0.1em 0.3em;
+}
+
+.ssm-root pre {
+  background: var(--st-secondary-background-color, transparent);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  overflow-x: auto;
+}
+
+.ssm-root blockquote {
+  border-left: 2px solid var(--st-border-color, currentColor);
+  padding-left: 1rem;
+  opacity: 0.8;
+}
+
+.ssm-root img {
+  max-width: 100%;
+}
+
+.ssm-root table {
+  border-collapse: collapse;
+}
+
+.ssm-root th,
+.ssm-root td {
+  border: 1px solid var(--st-border-color, currentColor);
+  padding: 0.25rem 0.5rem;
+}
+
+.ssm-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--st-link-color, inherit);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ssm-toggle:hover {
+  text-decoration: underline;
+}
+
+.ssm-toggle:focus-visible {
+  outline: 2px solid var(--st-primary-color, currentColor);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
