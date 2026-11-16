@@ -72,3 +72,4 @@ streamlit run example.py
 - [ ] Protect the `main` branch.
 - [ ] Refine this README.
 - [ ] Push to PyPI.
+- [ ] Add "Open in streamlit" badges to the examples.
