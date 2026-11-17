@@ -9,9 +9,16 @@ description = "A Streamlit component that writes text like st.write, truncated t
 readme = "README.md"
 requires-python = ">=3.11"
 keywords = ["streamlit", "streamlit-component", "show more", "read more", "truncate"]
+# Must be valid trove classifiers (https://pypi.org/classifiers/): PyPI rejects
+# the upload otherwise. There is no "Framework :: Streamlit" classifier.
 classifiers = [
-    "Framework :: Streamlit",
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: Software Development :: Widget Sets",
 ]
 dependencies = [
     "streamlit>=1.51",
