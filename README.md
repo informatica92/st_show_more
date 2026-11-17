@@ -7,6 +7,10 @@ full text.
 Expanding and collapsing happens in the browser: no rerun of your app, and the
 state survives reruns triggered by other widgets.
 
+<video src="https://raw.githubusercontent.com/informatica92/st_show_more/refs/heads/main/media/st_show_more.mp4" width="320" height="240" controls></video>
+
+
+
 ## Install
 
 ```bash
