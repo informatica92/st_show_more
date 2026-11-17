@@ -1,4 +1,5 @@
 # st_show_more
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://st-show-more.streamlit.app/)
 
 A Streamlit component that writes Markdown text like `st.write`, collapsed to a
 preview that ends with an inline **Show more** button. Clicking it reveals the
@@ -69,9 +70,9 @@ streamlit run example.py
 ## TODO
 
 - [x] Rename the package to `st_show_more`, following the naming used by most Streamlit custom components.
-- [ ] Rename the GitHub repo to `st_show_more` (the install URL above already uses it) and update the `origin` remote.
-- [ ] Push a version tag (e.g. `v0.1.0`) so dependents can pin a release.
+- [x] Rename the GitHub repo to `st_show_more` (the install URL above already uses it) and update the `origin` remote.
+- [x] Push a version tag (e.g. `v0.1.0`) so dependents can pin a release.
 - [ ] Protect the `main` branch.
 - [ ] Refine this README.
-- [ ] Push to PyPI.
-- [ ] Add "Open in streamlit" badges to the examples.
+- [x] Push to PyPI.
+- [x] Add "Open in streamlit" badges to the examples.
