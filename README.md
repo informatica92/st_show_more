@@ -10,7 +10,7 @@ state survives reruns triggered by other widgets.
 ## Install
 
 ```bash
-pip install git+https://github.com/informatica92/st_show_more.git
+pip install st_show_more
 ```
 
 Requires Streamlit >= 1.51 (it is built on `st.components.v2`, so it renders
