@@ -1,6 +1,6 @@
 import pytest
 
-from streamlit_show_more import make_preview
+from st_show_more import make_preview
 
 
 def test_short_text_is_untouched():

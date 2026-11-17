@@ -1,4 +1,4 @@
-# streamlit-show-more
+# st_show_more
 
 A Streamlit component that writes Markdown text like `st.write`, collapsed to a
 preview that ends with an inline **Show more** button. Clicking it reveals the
@@ -10,7 +10,7 @@ state survives reruns triggered by other widgets.
 ## Install
 
 ```bash
-pip install git+https://github.com/informatica92/streamlit-show-more.git
+pip install git+https://github.com/informatica92/st_show_more.git
 ```
 
 Requires Streamlit >= 1.51 (it is built on `st.components.v2`, so it renders
@@ -19,13 +19,13 @@ inline in the page, not in an iframe, and follows the app theme).
 ## Usage
 
 ```python
-from streamlit_show_more import show_more
+from st_show_more import st_show_more
 
 # Preview = first 120 characters of the text
-show_more(long_text, preview=120)
+st_show_more(long_text, preview=120)
 
 # Preview = your own text, custom button labels
-show_more(long_text, preview="A short summary.", more_label="Read all", less_label="Close")
+st_show_more(long_text, preview="A short summary.", more_label="Read all", less_label="Close")
 ```
 
 | Parameter           | Type            | Default       | Description |
@@ -66,8 +66,8 @@ streamlit run example.py
 
 ## TODO
 
-- [ ] Rename the repo/package to `st_show_more`, following the naming used by
-      most Streamlit custom components.
+- [x] Rename the package to `st_show_more`, following the naming used by most Streamlit custom components.
+- [ ] Rename the GitHub repo to `st_show_more` (the install URL above already uses it) and update the `origin` remote.
 - [ ] Push a version tag (e.g. `v0.1.0`) so dependents can pin a release.
 - [ ] Protect the `main` branch.
 - [ ] Refine this README.

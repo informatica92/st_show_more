@@ -1,4 +1,4 @@
-"""streamlit-show-more: st.write-like text with an inline "Show more" button."""
+"""st_show_more: st.write-like text with an inline "Show more" button."""
 
 from __future__ import annotations
 
@@ -7,14 +7,14 @@ from pathlib import Path
 import streamlit as st
 from markdown_it import MarkdownIt
 
-__all__ = ["show_more", "make_preview"]
+__all__ = ["st_show_more", "make_preview"]
 __version__ = "0.1.0"
 
 _FRONTEND = Path(__file__).parent / "frontend"
 
-# Registered once at import time; every show_more() call mounts a new instance.
+# Registered once at import time; every st_show_more() call mounts a new instance.
 _component = st.components.v2.component(
-    "streamlit_show_more.show_more",
+    "st_show_more.show_more",
     html='<div class="ssm-root"></div>',
     css=(_FRONTEND / "show_more.css").read_text(encoding="utf-8"),
     js=(_FRONTEND / "show_more.js").read_text(encoding="utf-8"),
@@ -45,7 +45,7 @@ def make_preview(text: str, n_chars: int, ellipsis: str = "…") -> tuple[str, b
     return cut.rstrip().rstrip(",;:.-–—") + ellipsis, True
 
 
-def show_more(
+def st_show_more(
     text: str,
     preview: str | int = 200,
     more_label: str = "Show more",
