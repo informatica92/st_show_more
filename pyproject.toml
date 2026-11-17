@@ -21,8 +21,8 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest"]
 
-[tool.setuptools]
-packages = ["st_show_more"]
+[tool.setuptools.packages.find]
+include = ["st_show_more*"]
 
 [tool.setuptools.package-data]
 st_show_more = ["frontend/*"]
