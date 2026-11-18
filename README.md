@@ -54,6 +54,21 @@ st_show_more(long_text, preview="A short summary.", more_label="Read all", less_
   preview when the beginning of your text is heavily formatted.
 - Links open in a new tab.
 
+## Expanded/collapsed state
+
+The state lives only in the browser: clicking the button never reruns your script, and the state is not sent back to Python.
+
+| Event                                                                 | State      |
+|---------------------------------------------------------------------------------------------|------------|
+| Rerun of the app (any widget interaction, `st.rerun()`)               | kept       |
+| `text` or `preview` changes                                           | reset      |
+| `expanded` changes                                                    | reset      |
+| Component removed from the page and shown again (e.g. inside an `if`, a tab or page switch) | reset |
+| Full page reload (F5) or a new browser session                       | reset      |
+
+"Reset" means back to the initial state given by `expanded` (collapsed by default). 
+This also applies when a `key` is set: `key` only identifies the instance, it does not persist the state.
+
 ## Development
 
 ```bash
