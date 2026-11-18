@@ -76,6 +76,18 @@ st_show_more("Just a short sentence.", preview=120)""",
             language="python",
         )
 
+with st.container(border=True):
+    st.subheader("From lists or tuples")
+    st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ")
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
+st.subheader("From lists or tuples")
+st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ")""",
+            language="python",
+        )
+
 st.info("State survives reruns, try clicking the button below to rerun the app and see that the state is preserved.")
 if st.button("Rerun the app"):
     st.rerun()

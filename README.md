@@ -33,10 +33,11 @@ st_show_more(long_text, preview="A short summary.", more_label="Read all", less_
 
 | Parameter           | Type            | Default       | Description |
 |---------------------|-----------------|---------------|-------------|
-| `text`              | `str`           | required      | Full text (Markdown). |
-| `preview`           | `str` or `int`  | `200`         | `int`: first N characters of `text`, cut at a word boundary and followed by `…`. If `text` fits in N characters it is shown in full with no button. `str`: used as the preview as-is (Markdown). |
+| `text`              | `str` or `list` or `tuple` or None | required      | Full text (Markdown). If list or tuple, the elements are joined with `joiner` to form the full text. `None` is treated as an empty string. |
+| `preview`           | `str` or `int`  | `200`         | `int`: first N characters of `text`, cut at a word boundary and followed by `…`. If `text` fits in N characters it is shown in full with no button. `str`: used as the preview as-is (Markdown). If `text` is a list/tuple, the preview is applied to the number of elements in the list/tuple, not the total number of characters. |
 | `more_label`        | `str`           | `"Show more"` | Label of the expand button. |
 | `less_label`        | `str` or `None` | `"Show less"` | Label of the collapse button. `None` = no way back once expanded. |
+| `joiner`            | `str`           | `", "`        | String used to join list/tuple elements if `text` is a list/tuple, ignored otherwise. |
 | `color`             | `str` or `None` | `None`        | Text color, any CSS color: `"gray"`, `"blue"`, `"#ff4b4b"`... `None` = theme text color. Links and the button keep the theme's link color. |
 | `size`              | number, `str` or `None` | `None` | Font size. A number is pixels (`12`), a string is a CSS length (`"0.875rem"`). `None` = app default. |
 | `expanded`          | `bool`          | `False`       | Initial state. |
@@ -69,10 +70,6 @@ streamlit run example.py
 
 ## TODO
 
-- [x] Rename the package to `st_show_more`, following the naming used by most Streamlit custom components.
-- [x] Rename the GitHub repo to `st_show_more` (the install URL above already uses it) and update the `origin` remote.
-- [x] Push a version tag (e.g. `v0.1.0`) so dependents can pin a release.
 - [ ] Protect the `main` branch.
 - [ ] Refine this README.
-- [x] Push to PyPI.
-- [x] Add "Open in streamlit" badges to the examples.
+

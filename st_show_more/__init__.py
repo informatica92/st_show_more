@@ -45,8 +45,8 @@ def make_preview(text: str, n_chars: int, ellipsis: str = "…") -> tuple[str, b
     return cut.rstrip().rstrip(",;:.-–—") + ellipsis, True
 
 
-def st_show_more(
-    text: str,
+def _st_show_more(
+    text: str | None,
     preview: str | int = 200,
     more_label: str = "Show more",
     less_label: str | None = "Show less",
@@ -120,4 +120,74 @@ def st_show_more(
             "size": size,
             "expanded": bool(expanded),
         },
+    )
+
+def st_show_more(
+    text: str | list | tuple | None,
+    preview: str | int = 200,
+    more_label: str = "Show more",
+    less_label: str | None = "Show less",
+    *,
+    joiner: str = ", ",
+    color: str | None = None,
+    size: int | float | str | None = None,
+    expanded: bool = False,
+    unsafe_allow_html: bool = False,
+    key: str | None = None,
+) -> None:
+    """Write ``text`` as Markdown, collapsed to a preview with a "Show more" button.
+
+    Parameters
+    ----------
+    text : str, list, tuple or None
+        If list or tuple, the elements are joined with ``joiner`` to form the full text.
+        The full text (Markdown), shown once the user clicks the button.
+        ``None`` is treated as an empty string.
+    preview : str or int
+        What to show while collapsed. An ``int`` takes the first N characters of
+        ``text`` (cut at a word boundary, with a trailing ellipsis); if ``text``
+        is not longer than N it is shown in full, without a button. A ``str`` is
+        used as the preview as-is (Markdown).
+        If ``text`` is a list/tuple, the preview is applied to the number of elements in the list/tuple,
+        not the total number of characters.
+    joiner : str
+        String used to join list/tuple elements if ``text`` is a list/tuple, ignored otherwise.
+    more_label : str
+        Label of the button that expands the text.
+    less_label : str or None
+        Label of the button that collapses the text again. ``None`` makes the
+        expansion one-way (no button once expanded).
+    color : str or None
+        Text color, as any CSS color: a name (``"gray"``, ``"blue"``), a hex
+        code (``"#ff4b4b"``) or a function (``"rgb(...)"``). ``None`` uses the
+        theme's text color. Links and the button keep the theme's link color.
+    size : int, float, str or None
+        Font size. A number is taken as pixels (``12`` -> ``12px``); a string is
+        used as a CSS length (``"0.875rem"``). ``None`` uses the app's size.
+    expanded : bool
+        Initial state.
+    unsafe_allow_html : bool
+        Render raw HTML contained in the text instead of escaping it. Only
+        enable this for content you trust.
+    key : str or None
+        Optional unique key for the component instance.
+    """
+    if isinstance(text, (list, tuple)):
+        if not isinstance(preview, int):
+            raise TypeError("preview must be an int when text is a list or tuple")
+        preview = joiner.join(str(x) for x in text[:preview])
+        text = joiner.join(str(x) for x in text)
+        if len(preview) < len(text):
+            preview += f"{joiner}…"
+
+    _st_show_more(
+        text=text,
+        preview=preview,
+        more_label=more_label,
+        less_label=less_label,
+        color=color,
+        size=size,
+        expanded=expanded,
+        unsafe_allow_html=unsafe_allow_html,
+        key=key,
     )
