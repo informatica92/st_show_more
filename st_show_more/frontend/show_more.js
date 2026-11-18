@@ -1,5 +1,7 @@
 // Expanded/collapsed state per instance. Kept on the client so toggling never
-// triggers a Streamlit rerun, and kept outside the DOM so it survives remounts.
+// triggers a Streamlit rerun; it survives reruns but not remounts (even with a
+// `key`, the state is reset when the component leaves the page and comes
+// back) nor page reloads. See "Expanded/collapsed state" in the README.
 const states = new Map();
 
 export default function (component) {
