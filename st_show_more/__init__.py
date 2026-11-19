@@ -129,6 +129,7 @@ def st_show_more(
     less_label: str | None = "Show less",
     *,
     joiner: str = ", ",
+    prefix: str = "",
     color: str | None = None,
     size: int | float | str | None = None,
     expanded: bool = False,
@@ -152,6 +153,8 @@ def st_show_more(
         not the total number of characters.
     joiner : str
         String used to join list/tuple elements if ``text`` is a list/tuple, ignored otherwise.
+    prefix : str
+        String to prepend to the preview amd full text. Useful for adding title/context.
     more_label : str
         Label of the button that expands the text.
     less_label : str or None
@@ -179,6 +182,12 @@ def st_show_more(
         text = joiner.join(str(x) for x in text)
         if len(preview) < len(text):
             preview += f"{joiner}…"
+
+    if prefix:
+        if not isinstance(prefix, str):
+            raise TypeError("prefix must be a string")
+        preview = f"{prefix}{preview}"
+        text = f"{prefix}{text}"
 
     _st_show_more(
         text=text,

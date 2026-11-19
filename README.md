@@ -38,6 +38,7 @@ st_show_more(long_text, preview="A short summary.", more_label="Read all", less_
 | `more_label`        | `str`           | `"Show more"` | Label of the expand button. |
 | `less_label`        | `str` or `None` | `"Show less"` | Label of the collapse button. `None` = no way back once expanded. |
 | `joiner`            | `str`           | `", "`        | String used to join list/tuple elements if `text` is a list/tuple, ignored otherwise. |
+| `prefix`            | `str`           | `""`          | String to prepend to the preview and full text. Useful for adding title/context. |
 | `color`             | `str` or `None` | `None`        | Text color, any CSS color: `"gray"`, `"blue"`, `"#ff4b4b"`... `None` = theme text color. Links and the button keep the theme's link color. |
 | `size`              | number, `str` or `None` | `None` | Font size. A number is pixels (`12`), a string is a CSS length (`"0.875rem"`). `None` = app default. |
 | `expanded`          | `bool`          | `False`       | Initial state. |

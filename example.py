@@ -16,6 +16,30 @@ LOREM = (
 st.title("st_show_more")
 
 with st.container(border=True):
+    st.subheader("With prefix - :rainbow[new in version 0.1.6: `prefix` argument]")
+    st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ", prefix="**Fruits**: ")
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
+st.subheader("With prefix - new in version 0.1.6: `prefix` argument")
+st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ", prefix="**Fruits**: ")""",
+            language="python",
+        )
+
+with st.container(border=True):
+    st.subheader("From lists or tuples - :rainbow[new in version 0.1.5: `joiner` argument]")
+    st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ")
+
+    with st.expander(":material/code: view code"):
+        st.code(
+            """
+st.subheader("From lists or tuples - new in version 0.1.5: `joiner` argument")
+st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ")""",
+            language="python",
+        )
+
+with st.container(border=True):
     st.subheader("Preview as a number of characters")
     st_show_more(LOREM, preview=120)
 
@@ -73,18 +97,6 @@ with st.container(border=True):
             """
 st.subheader("Short text: nothing to hide => no button")
 st_show_more("Just a short sentence.", preview=120)""",
-            language="python",
-        )
-
-with st.container(border=True):
-    st.subheader("From lists or tuples")
-    st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ")
-
-    with st.expander(":material/code: view code"):
-        st.code(
-            """
-st.subheader("From lists or tuples")
-st_show_more(["apple", "banana", "cherry", "pineapple"], preview=2, joiner="; ")""",
             language="python",
         )
 
